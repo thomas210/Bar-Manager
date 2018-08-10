@@ -1,0 +1,51 @@
+unit C_pedidos;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, ExtCtrls;
+
+type
+  Tpedidos_mesa = class(TForm)
+    Conta: TLabel;
+    Button1: TButton;
+    Edit1: TEdit;
+    DBGrid1: TDBGrid;
+    Button2: TButton;
+    Button4: TButton;
+    Label1: TLabel;
+    pagar: TRadioGroup;
+    ComboBox2: TComboBox;
+    Memo1: TMemo;
+    b_voltar: TButton;
+    procedure Button4Click(Sender: TObject);
+    procedure b_voltarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  pedidos_mesa: Tpedidos_mesa;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tpedidos_mesa.Button4Click(Sender: TObject);
+begin
+if pagar.ItemIndex = -1 then
+  showmessage('Atenção, ainda não foi selecionado quem irá pagar a conta')
+else
+  pedidos_mesa.Close;
+
+end;
+
+procedure Tpedidos_mesa.b_voltarClick(Sender: TObject);
+begin
+pedidos_mesa.Close;
+end;
+
+end.
